@@ -1,4 +1,9 @@
 venv/
+
 *.pyc
+
 gunicorn.log
+
 setup.txt
+
+sticker/

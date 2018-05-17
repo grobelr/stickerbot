@@ -14,11 +14,13 @@ import hashlib
 import time
 import leveldb
 import json
+import fileinput
 
 app = Flask(__name__)
 
 
 IMGUR_URL = 'https://api.imgur.com/3/image'
+IMGUR_CLIENT = os.environ['IMGUR_CLIENT']
 
 @app.route('/', methods=['GET', 'POST'])
 def mainbot():
@@ -32,12 +34,24 @@ def mainbot():
         return fbwrapper.verify_token(request.args['hub.verify_token'], request.args['hub.challenge'])
 
 def botprocess(payload):
+    readFile()
     """ Get the sticker and get out! """
-    print payload
     userid, _, userinputdata, stickerid = fbwrapper.bring_me_args(payload)
-    fbwrapper.sendtext(userid, "Sticker recebido: " + str(stickerid))
-    urlimage = uploadmedia(userinputdata)
-    fbwrapper.sendmedia(userid, 'image', urlimage)
+    db = leveldb.LevelDB("./sticker")
+
+    stickervars = getSticker(stickerid, db)
+
+    if stickervars:
+        jsonSticker = json.loads(stickervars)
+        fbwrapper.sendtext(userid, "Description: " + jsonSticker['description'])
+        fbwrapper.sendtext(userid, "Mood: " + jsonSticker['mood'])
+        fbwrapper.sendtext(userid, "StickerID: " + stickerid)
+    else:
+        fbwrapper.sendtext(userid, "Not found, stickerid: " + stickerid)
+        urlimage = uploadmedia(userinputdata)
+        putSticker(stickerid, urlimage, db)
+        fbwrapper.sendtext(userid, "thx for helping me find all sticker!")
+        fbwrapper.sendtext(userid, "You can get every fckin sticker that I got on https://github.com/grobelr/stickerbot")
 
 
 def uploadmedia(url):
@@ -54,6 +68,30 @@ def uploadmedia(url):
     print response.text
     jsondecode = json.loads(response.text)
     return jsondecode['data']['link']
+
+def getSticker(stickerid, db):
+    try: 
+        s = db.Get(stickerid)
+        return s
+    except:
+        return False
+
+def putSticker(stickerid, urlimage, db):
+    try:
+        sticker = {}
+        sticker['urlimage'] = urlimage
+        sticker['description'] = "Not set!"
+        sticker['mood'] = "Not set!"
+        jsoned = json.dumps(sticker)
+        db.Put(stickerid, jsoned)
+        return True
+    except:
+        return False
+
+def readFile():
+    for line in fileinput.input("README.md", inplace=1):
+        print line
+
 
 
 if __name__ == '__main__':

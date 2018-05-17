@@ -1,7 +1,8 @@
-import requests
+import requests, os
 
 FACEHOOKURL = "https://graph.facebook.com/v2.9/me"
-
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
+TOKEN = os.environ['TOKEN']
 
 def sendmedia(userid, typemedia=None, url=None, attachment_id=None):
     """ Insert/Send Photos/Videos """
@@ -77,7 +78,7 @@ def bring_me_args(body):
             else:
                 typedata = ''
                 userinput = ''
-    return recipient_id, typedata, userinput, stickerid
+    return recipient_id, typedata, userinput, str(stickerid)
 
 """
 Verify the mutfcker Token!
