@@ -36,8 +36,12 @@ def mainbot():
 def botprocess(payload):
     """ Get the sticker and get out! """
     userid, _, userinputdata, stickerid = fbwrapper.bring_me_args(payload)
-    db = leveldb.LevelDB("./sticker")
 
+    print stickerid
+    if stickerid == "None":
+        print "entrou no none"
+        fbwrapper.sendtext(userid, "Naaaaaaaaaaa!! Send me a Sticker or get out!")
+        return
     stickervars = getSticker(stickerid, db)
 
     if stickervars:
@@ -55,7 +59,6 @@ def botprocess(payload):
 
 
 def uploadmedia(url):
-    print url
     headers = {"Authorization": "Client-ID " + IMGUR_CLIENT} 
     params = {
         'image': url
@@ -95,5 +98,6 @@ def updateFile(stickerid, imageurl, description, mood):
     f.close()
 
 if __name__ == '__main__':
+    db = leveldb.LevelDB("./sticker")
     app.run(host='0.0.0.0', port=8000)
     #app.run()
