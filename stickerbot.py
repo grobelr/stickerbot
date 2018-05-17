@@ -34,7 +34,6 @@ def mainbot():
         return fbwrapper.verify_token(request.args['hub.verify_token'], request.args['hub.challenge'])
 
 def botprocess(payload):
-    readFile()
     """ Get the sticker and get out! """
     userid, _, userinputdata, stickerid = fbwrapper.bring_me_args(payload)
     db = leveldb.LevelDB("./sticker")
@@ -52,6 +51,7 @@ def botprocess(payload):
         putSticker(stickerid, urlimage, db)
         fbwrapper.sendtext(userid, "thx for helping me find all sticker!")
         fbwrapper.sendtext(userid, "You can get every fckin sticker that I got on https://github.com/grobelr/stickerbot")
+        updateFile(stickerid, urlimage, "Not Set!", "Not Set!")
 
 
 def uploadmedia(url):
@@ -88,11 +88,11 @@ def putSticker(stickerid, urlimage, db):
     except:
         return False
 
-def readFile():
-    for line in fileinput.input("README.md", inplace=1):
-        print line
-
-
+def updateFile(stickerid, imageurl, description, mood):
+    gitimage = '![Image of Sticker](' + imageurl + ')'
+    f = open("README.md","a+")
+    f.write("\n|" + stickerid +  "|" + gitimage + "|" + description + "|" + mood + "|")
+    f.close()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000)
