@@ -1,8 +1,13 @@
-# stickerbot
+# Stickerbot
 
 Simple Messenger Bot to capture Stickers ID
 
+## Contributors
 
+Ricardo  Grobel [Linkedin](https://www.linkedin.com/in/ricardogrobel/)
+Rafael Pacheco [Github](https://github.com/ravpacheco)
+
+Chatbot Brasil [Facebook Group](https://www.facebook.com/groups/chatbotbrasil/)
 ## Stickers
 
 
