@@ -8,5 +8,8 @@ Simple Messenger Bot to capture Stickers ID
 
 | Sticker ID    | Sticker Image  | Description | Mood |
 | --------------|----------------|-------------|-------------|
-| 1111111|![Image of Sticker](https://i.imgur.com//mG1Ycn6.png)|laughing|good|
-|126362100881920|![Image of Sticker](https://i.imgur.com/EQCkNMD.png)|Not Set!|Not Set!|
+|369239263222822|![Image of Sticker](https://i.imgur.com/Q6QtIkN.png)|Not Set!|Not Set!|
+|126362100881920|![Image of Sticker](https://i.imgur.com/XFBhIT3.png)|Not Set!|Not Set!|
+|126362187548578|![Image of Sticker](https://i.imgur.com/mVJB4Dh.png)|Not Set!|Not Set!|
+|126361974215266|![Image of Sticker](https://i.imgur.com/344Gg0N.png)|Not Set!|Not Set!|
+|126361874215276|![Image of Sticker](https://i.imgur.com/dDZEBaj.png)|Not Set!|Not Set!|
