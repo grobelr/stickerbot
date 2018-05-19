@@ -1,6 +1,7 @@
 # Stickerbot
 
-Simple Messenger Bot to capture Stickers ID
+Simple Messenger Bot to capture Stickers ID.
+You can help us send new sticker here: m.me/451336291977942
 
 ## Contributors
 

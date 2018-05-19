@@ -54,7 +54,7 @@ def botprocess(payload):
         urlimage = uploadmedia(userinputdata)
         putSticker(stickerid, urlimage, db)
         fbwrapper.sendtext(userid, "thx for helping me find all sticker!")
-        fbwrapper.sendtext(userid, "You can get every fckin sticker that I got on https://github.com/grobelr/stickerbot")
+        fbwrapper.sendtext(userid, "You can see every fckin sticker that I got on https://github.com/grobelr/stickerbot")
         updateFile(stickerid, urlimage, "Not Set!", "Not Set!")
 
 
@@ -99,5 +99,5 @@ def updateFile(stickerid, imageurl, description, mood):
 
 if __name__ == '__main__':
     db = leveldb.LevelDB("./sticker")
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=9100)
     #app.run()
