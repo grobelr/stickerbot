@@ -37,10 +37,7 @@ def mainbot():
 def botprocess(payload):
     """ Get the sticker and get out! """
     userid, _, userinputdata, stickerid = fbwrapper.bring_me_args(payload)
-
-    print stickerid
     if stickerid == "None":
-        print "entrou no none"
         fbwrapper.sendtext(userid, "Naaaaaaaaaaa!! Send me a Sticker or get out!")
         return
     stickervars = getSticker(stickerid, db)
@@ -69,7 +66,6 @@ def uploadmedia(url):
         json=params,
         headers=headers
     )
-    print response.text
     jsondecode = json.loads(response.text)
     return jsondecode['data']['link']
 
