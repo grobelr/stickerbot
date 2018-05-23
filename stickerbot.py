@@ -22,7 +22,8 @@ app = Flask(__name__)
 IMGUR_URL = 'https://api.imgur.com/3/image'
 IMGUR_CLIENT = os.environ['IMGUR_CLIENT']
 
-@app.route('/', methods=['GET', 'POST'])
+## Adjust your path here.
+@app.route('/stickerbot', methods=['GET', 'POST'])
 def mainbot():
     """ Main Function """
     if request.method == 'POST':
