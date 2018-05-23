@@ -15,7 +15,7 @@ Chatbot Brasil [Facebook Group](https://www.facebook.com/groups/chatbotbrasil/)
 
 | Sticker ID    | Sticker Image  | Description | Mood |
 | --------------|----------------|-------------|-------------|
-|369239263222822|![Image of Sticker](https://i.imgur.com/LFEIXj9.png)|Not Set!|Not Set!|
+|369239263222822|![Image of Sticker](https://i.imgur.com/LFEIXj9.png)|Like|Good|
 |126361874215276|![Image of Sticker](https://i.imgur.com/pZlhuvz.png)|Not Set!|Not Set!|
 |126362187548578|![Image of Sticker](https://i.imgur.com/0Jri5PW.png)|Not Set!|Not Set!|
 |126361967548600|![Image of Sticker](https://i.imgur.com/PyFuVpx.png)|Not Set!|Not Set!|
