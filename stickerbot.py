@@ -51,8 +51,7 @@ def botprocess(payload):
         fbwrapper.sendtext(userid, "Not found, stickerid: " + stickerid)
         urlimage = uploadmedia(userinputdata)
         putSticker(stickerid, urlimage, db)
-        fbwrapper.sendtext(userid, "thx for helping me find all sticker!")
-        fbwrapper.sendtext(userid, "You can see every fckin sticker that I got on https://github.com/grobelr/stickerbot")
+        fbwrapper.sendtext(userid, "thx for helping me find all stickers!")
         updateFile(stickerid, urlimage, "Not Set!", "Not Set!")
 
 
